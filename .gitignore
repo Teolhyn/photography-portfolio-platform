@@ -92,6 +92,8 @@ docs/_build/
 .pybuilder/
 target/
 
+node_modules/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
