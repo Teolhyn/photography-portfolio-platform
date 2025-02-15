@@ -7,3 +7,11 @@ body {
 body {
     background-color: black;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../public/fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
+  font-weight: normal;
+  font-weight: normal;
+  font-display: swap;
+};

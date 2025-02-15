@@ -1,40 +1,19 @@
 ---
-import { client } from "../lib/contentful";
 import Layout from "../layouts/Layout.astro";
-
-interface Photograph {
-  name: string;
-  description: string;
-  photographer?: string;
-  photographUrl: string;
-}
-
-const photographs = await client.getAllPhotographs();
+import ScrollingImages from "../components/ScrollingImages.astro";
+import ScrollingImagesInverted from "../components/ScrollingImagesInverted.astro"
 ---
 
 
 <Layout title="Mikael Nyberg">
   <!-- <div class="h-full"> -->
-  <h1 class="text-6xl sm:text-8xl text-center">
-    Mikael Nyberg
+  <h1 class="text-6xl sm:text-8xl text-center font-family: 'Montserrat'">
+    MIKAEL NYBERG
   </h1>
-  <section class="container mx-auto mt-4">
-    <ul
-      class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
-    >
-      {
-        photographs.map((photograph: Photograph) => (
-          <li class="mt-4 ">
-              <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src={photograph.photographUrl}
-                  class="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+  <div class="flex justify-center mx-40 mt-5">
+    <ScrollingImages/>
+    <ScrollingImagesInverted/>
+    <ScrollingImages/>
+  </div>
   <!-- </div> -->
 </Layout>
