@@ -1,17 +1,7 @@
-html,
-body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #fff;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
 
-body {
-    background-color: black;
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
 }
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../../public/fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
-  font-weight: normal;
-  font-weight: normal;
-  font-display: swap;
-};

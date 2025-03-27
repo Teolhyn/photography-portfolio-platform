@@ -1,0 +1,33 @@
+---
+import { client } from "../lib/contentful";
+
+interface Photograph {
+  photographUrl: string;
+  name: string;
+}
+
+const photographs: Photograph[] = await client.getAllPhotographs();
+const columns = 3;
+
+const columnImages: Photograph[][] = Array.from({ length: columns }, () => []); 
+
+photographs.forEach((photo, index) => {
+  columnImages[index % columns].push(photo);
+});
+---
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-1 auto-rows-[minmax(100px, auto)] place-items-start mb-10">
+  {columnImages.map((column, colIndex) => (
+    <div {...{ key: colIndex }} class="grid gap-1">
+      {column.map((photo) => (
+        <div {...{ key: photo.photographUrl }}>
+          <img 
+            class="w-full h-auto object-cover" 
+            src={photo.photographUrl} 
+            alt={photo.name} 
+          />
+        </div>
+      ))}
+    </div>
+  ))}
+</div>
